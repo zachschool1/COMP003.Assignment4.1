@@ -30,7 +30,11 @@ namespace COMP003A.Assignment4._1
                         Console.WriteLine("RESTRICTED STEP. SKIPPED.");
                         stepCounter++;
 
-                    } else
+                    } else if (stepCounter >= 15)
+                    {
+                        Console.WriteLine("You have exceeded the step limit. Come back later.");
+                        break;
+                    }
                     {
                         stepCounter++;
                         Console.WriteLine($"Routine step {stepCounter} completed");
