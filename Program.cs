@@ -7,7 +7,7 @@ namespace COMP003A.Assignment4._1
         static void Main(string[] args)
         {
             int stepCounter = 0;
-            char response;
+            string response;
             do
             {
                 Console.WriteLine("Pick a choice: ");
@@ -15,25 +15,38 @@ namespace COMP003A.Assignment4._1
                 Console.WriteLine("2. View Progress");
                 Console.WriteLine("3. Exit");
                 Console.WriteLine("Enter Choice: ");
-                response = Console.ReadKey().KeyChar;
+                response = Console.ReadLine();
                 Console.WriteLine();
 
 
-                if (response == '3')
+                if (response == "3")
                 {
                     Console.WriteLine("Exiting Program");
                     break;
-                }
-
-                if (response == '1')
+                } else if (response == "1")
                 {
-                    stepCounter++;
-                    Console.WriteLine($"Routine step {stepCounter} completed");
-                }
-                if (response == '2')
+                    if (stepCounter == 5)
+                    {
+                        Console.WriteLine("RESTRICTED STEP. SKIPPED.");
+                        stepCounter++;
+
+                    } else
+                    {
+                        stepCounter++;
+                        Console.WriteLine($"Routine step {stepCounter} completed");
+                    }
+                    
+                    
+                } else if (response == "2")
                 {
                     Console.WriteLine($"Current progress: {stepCounter} steps completed.");
+                } else
+                {
+                    Console.WriteLine("Invalid Input");
+                    
                 }
+
+                
             } 
             while (true);
 
